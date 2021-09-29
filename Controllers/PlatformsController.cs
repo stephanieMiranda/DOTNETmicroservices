@@ -55,10 +55,10 @@ namespace PlatformService.Controllers
                _repository.CreatePlatform(platformModel);
                _repository.SaveChanges();
 
-               //pass back success, if it is successful: 201, URI, and 
+               //pass back success, if it is successful: 201, URI, and the newly created object.
                var PlatformReadDto = _mapper.Map<PlatformReadDto>(platformModel);
 
-               //returns the HTTP 201
+               //CreatedAtRoute returns HTTP 201 and instructs to create new Id, then to return the new object
                return CreatedAtRoute(nameof(GetPlatformById), new {Id = PlatformReadDto.Id}, PlatformReadDto);
 
           }
