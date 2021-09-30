@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-//using System.Runtime.Remoting.Messaging;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -20,14 +19,17 @@ namespace PlatformService.Controllers
           private readonly IMapper _mapper;
           private readonly ICommandDataClient _commandDataClient;
 
-          public PlatformsController(IPlatformRepo repository, IMapper mapper, ICommandDataClient commandDataClient)
+          public PlatformsController(
+               IPlatformRepo repository, 
+               IMapper mapper, 
+               ICommandDataClient commandDataClient)
           {
               _repository = repository;
               _mapper = mapper;
               _commandDataClient = commandDataClient;
           }
 
-          //CRUD actions
+          /*CRUD actions*/
           [HttpGet]
           public ActionResult<IEnumerable<PlatformReadDto>> GetPlatforms()
           {

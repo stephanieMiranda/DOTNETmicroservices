@@ -23,12 +23,11 @@ namespace PlatformService
 {
     public class Startup
     {
+        public IConfiguration Configuration {get;}
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
-
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add/register services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -57,7 +56,7 @@ namespace PlatformService
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PlatformService v1"));
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 

@@ -17,7 +17,7 @@ spec:
           image: smirand6/commandsservice:latest
 ---
 apiVersion: v1
-kind: Serivce
+kind: Service
 metadata:
   name: commands-clusterip-srv
 spec:
