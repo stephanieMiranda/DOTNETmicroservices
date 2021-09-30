@@ -17,7 +17,7 @@ using Microsoft.OpenApi.Models;
 // using PlatformService.AsyncDataServices;
 using PlatformService.Data;
 //using PlatformService.SyncDataServices.Grpc;
-//using PlatformService.SyncDataServices.Http;
+using PlatformService.SyncDataServices.Http;
 
 namespace PlatformService
 {
@@ -38,10 +38,13 @@ namespace PlatformService
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddControllers();
+            services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PlatformService", Version = "v1" });
             });
+
+            Console.WriteLine($"---> CommandService Endpoint {Configuration["CommandService"]}");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
