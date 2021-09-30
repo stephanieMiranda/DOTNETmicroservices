@@ -17,7 +17,7 @@ spec:
           image: smirand6/platformservice:latest
 ---
 apiVersion: v1
-kind: Serivce
+kind: Service
 metadata:
   name: platforms-clusterip-srv
 spec:
